@@ -2,10 +2,11 @@
 
 import {useRouter} from "vue-router";
 import type {AxiosInstance} from "axios";
+import instance from "@/plugins/axios";
 import {computed, inject, ref} from "vue";
 
 const router = useRouter()
-const axios = inject<AxiosInstance>('axios')
+const axios = inject<AxiosInstance>('axios') || instance
 const users = ref([])
 
 const headers = computed(() => {

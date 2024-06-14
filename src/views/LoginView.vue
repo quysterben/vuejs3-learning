@@ -3,10 +3,11 @@
 import {useRouter} from "vue-router";
 import {inject, ref} from "vue";
 import type {AxiosInstance} from "axios";
+import instance from "@/plugins/axios";
 import Swal from "sweetalert2";
 
 const router = useRouter()
-const axios = inject<AxiosInstance>('axios')
+const axios = inject<AxiosInstance>('axios') || instance
 const form = ref({
   email: null,
   password: null
